@@ -1,0 +1,21 @@
+# Issues
+user: {{ user }}
+{% for issue in issues %}
+- issue: #{{ issue.number }} {{ issue.title }}
+  state: {{ issue.state }}
+  created_at: {{ issue.created_at | date(timezone="Asia/Tokyo", format="%Y/%m/%d %H:%M") }}
+  {% if issue.closed_at -%}
+  closed_at: {{ issue.closed_at | date(timezone="Asia/Tokyo", format="%Y/%m/%d %H:%M") }}
+  {% endif -%}
+  url: {{ issue.url }}
+  repository: {{issue.repository_owner}}/{{ issue.repository_name }}
+  {% if issue.labels -%}
+  labels: {{ issue.labels | join(sep=",") }}
+  {% endif -%}
+  {% if issue.assignees | length > 1 -%}
+  other_assignees: {% for other in issue.assignees %}{% if other != user %}{{ other }} {% endif %}{% endfor %}
+  {% endif -%}
+  {% if issue.tracked_issues_count > 0 -%}
+  {{ issue.tracked_closed_issues_count}}/{{issue.tracked_issues_count}}
+  {% endif -%}
+{% endfor %}
