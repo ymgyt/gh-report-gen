@@ -1,0 +1,45 @@
+[package]
+name = "gh-report-gen"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Generate report from github issues"
+repository = "https://github.com/ymgyt/gh-report-gen"
+readme = "README.md"
+categories = ["command-line-utilities"]
+
+[dependencies]
+anyhow = "1.0.69"
+camino = "1.1.4"
+chrono = { version = "0.4.24", features = ["serde"] }
+clap = { version = "4.1.8", default-features = false, features = [
+  "std",
+  "color",
+  "help",
+  "usage",
+  "error-context",
+  "suggestions",
+  "derive",
+  "env",
+] }
+glob = "0.3.1"
+graphql_client = "0.12.0"
+reqwest = { version = "0.11.14", features = ["json"] }
+serde = "1.0.156"
+tera = { version = "1.18.1", default-features = false, features = ["builtins"] }
+tokio = { version = "1.26.0", default-features = false, features = [
+  "rt-multi-thread",
+  "signal",
+  "time",
+  "macros",
+] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", default-features = false, features = [
+  "smallvec",
+  "fmt",
+  "ansi",
+  "std",
+  "env-filter",
+  "time",
+  "local-time",
+] }

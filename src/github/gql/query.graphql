@@ -1,0 +1,57 @@
+query Authenticate {
+  viewer {
+    login,
+  }
+}
+
+query Issues(
+  $user: String!, 
+  $since: DateTime!,
+  $after: String,
+  $first: Int = 20,
+){
+  viewer {
+    login,
+    issues(
+      filterBy: { assignee: $user since: $since }, 
+      orderBy: { direction: ASC, field: CREATED_AT },
+      first: $first, 
+      after: $after,
+    ) {
+      totalCount,
+      pageInfo {
+        endCursor,
+        hasNextPage,
+      },
+      nodes {
+        assignees(first: 10) {
+          nodes {
+            login,
+          },
+        },
+        closed,
+        closedAt,
+        createdAt,
+        updatedAt,
+        number,
+        repository {
+          name,
+          owner {
+            __typename,
+            login,
+          },
+        },
+        state,
+        title,
+        url,
+        labels(orderBy: { direction:ASC, field: NAME }, first: 10) {
+          nodes {
+            name,
+          },
+        },
+        trackedIssuesCount,
+        trackedClosedIssuesCount: trackedIssuesCount(states: [CLOSED]),
+      }
+    }
+  }
+}
