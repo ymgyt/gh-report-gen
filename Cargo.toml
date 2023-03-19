@@ -9,7 +9,10 @@ readme = "README.md"
 categories = ["command-line-utilities"]
 
 [dependencies]
-anyhow = { version = "1.0.69", default-features = false, features = ["std", "backtrace"] }
+anyhow = { version = "1.0.69", default-features = false, features = [
+  "std",
+  "backtrace",
+] }
 camino = { version = "1.1.4", default-features = false }
 chrono = { version = "0.4.24", features = ["serde"] }
 clap = { version = "4.1.8", default-features = false, features = [
@@ -22,9 +25,14 @@ clap = { version = "4.1.8", default-features = false, features = [
   "derive",
   "env",
 ] }
-glob = { version ="0.3.1", default-features = false }
-graphql_client = { version = "0.12.0", default-features = false, features = ["graphql_query_derive"] }
-reqwest = { version = "0.11.14",default-features = false,  features = ["json", "default-tls"] }
+glob = { version = "0.3.1", default-features = false }
+graphql_client = { version = "0.12.0", default-features = false, features = [
+  "graphql_query_derive",
+] }
+reqwest = { version = "0.11.14", default-features = false, features = [
+  "json",
+  "default-tls",
+] }
 serde = { version = "1.0.156", default-features = false, features = ["std"] }
 tera = { version = "1.18.1", default-features = false, features = ["builtins"] }
 tokio = { version = "1.26.0", default-features = false, features = [
@@ -33,7 +41,10 @@ tokio = { version = "1.26.0", default-features = false, features = [
   "time",
   "macros",
 ] }
-tracing = { version ="0.1.37", default-features = false, features = ["std","attributes" ] }
+tracing = { version = "0.1.37", default-features = false, features = [
+  "std",
+  "attributes",
+] }
 tracing-subscriber = { version = "0.3.16", default-features = false, features = [
   "smallvec",
   "fmt",
