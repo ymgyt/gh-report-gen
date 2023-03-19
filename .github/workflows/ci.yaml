@@ -13,7 +13,7 @@ jobs:
     - uses: actions-rs/install@master
       with:
         crate: cargo-sort
-      use-tool-cache: true
+        use-tool-cache: true
     - uses: actions-rs/install@master
       with:
         crate: cargo-nextest
