@@ -128,3 +128,8 @@ graphql-client introspect-schema https://api.github.com/graphql \
 ```
 
 [Github Docs](https://docs.github.com/en/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
+
+## License
+
+This project is licensed under the [MIT license.](./LICENSE)
+
