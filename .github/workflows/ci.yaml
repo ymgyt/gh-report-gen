@@ -1,7 +1,7 @@
 name: ci
 on: 
   pull_request:
-    types:["opened", "synchronize"]
+    types: ["opened", "synchronize"]
 
 jobs:
   check:
@@ -10,12 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: dtolnay/rust-toolchain@stable
-    - uses: dtolnay/install@master
+    - uses: actions-rs/install@master
       with:
         crate: cargo-sort
-    - uses: dtolnay/install@master
+      use-tool-cache: true
+    - uses: actions-rs/install@master
       with:
         crate: cargo-nextest
+        use-tool-cache: true
     - run: cargo make lint
     - run: cargo make test
     
