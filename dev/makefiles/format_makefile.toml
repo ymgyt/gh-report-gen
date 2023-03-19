@@ -1,0 +1,18 @@
+[tasks.fmt]
+dependencies = ["fmt:sort:cargo-toml", "fmt:toml", "fmt:rs"]
+
+[tasks."fmt:sort:cargo-toml"]
+description = "sort Cargo.toml dependencies"
+install_crate = { crate_name = "cargo-sort" }
+command = "cargo"
+args = ["sort"]
+
+[tasks."fmt:toml"]
+install_crate = { crate_name = "taplo-cli" }
+command = "taplo"
+args = ["fmt", "Cargo.toml", "Makefile", "dev/makefiles/*.toml"]
+
+[tasks."fmt:rs"]
+toolchain = "nightly"
+command = "cargo"
+args = ["fmt"]
