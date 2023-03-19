@@ -76,7 +76,7 @@ fn init_subscriber(verbose: u8) {
     // Respect log directive given by user if exists.
     let filter = std::env::var("LOG")
         .ok()
-        .map(|env| Cow::Owned(env))
+        .map(Cow::Owned)
         .unwrap_or(Cow::Borrowed(filter));
 
     tracing_subscriber::fmt()

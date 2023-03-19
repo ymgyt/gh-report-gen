@@ -3,6 +3,7 @@ pub(crate) mod query;
 pub(super) mod scaler {
     use serde::{Deserialize, Serialize};
 
+    #[allow(clippy::upper_case_acronyms)]
     pub type URI = String;
 
     #[derive(Serialize, Deserialize, Debug)]
