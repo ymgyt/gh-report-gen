@@ -1,0 +1,5 @@
+[tasks.test]
+description = "Run nextest"
+install_crate = { crate_name = "cargo-nextest" }
+command = "cargo"
+args = ["nextest", "run"]
